@@ -43,4 +43,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
+/*
+let myContext = LAContext()
+let myLocalizedReasonString = <#<#String explaining why app needs authentication#>
 
+var authError: NSError?
+if #available(iOS 8.0, macOS 10.12.1, *) {
+    if myContext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
+        myContext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { success, evaluateError in
+            if success {
+                // User authenticated successfully, take appropriate action
+            } else {
+                // User did not authenticate successfully, look at error and take appropriate action
+            }
+        }
+    } else {
+        // Could not evaluate policy; look at authError and present an appropriate message to user
+    }
+} else {
+    // Fallback on earlier versions
+}
+*/
