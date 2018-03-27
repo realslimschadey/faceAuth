@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        nameTextField.delegate = self
     }
     
     //MARK: Actions
@@ -27,7 +28,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    //Added text
+    //MARK: UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        myLabel.text = textField.text
+    }
     
     
 }
