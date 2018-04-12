@@ -39,21 +39,25 @@ class ViewController: UIViewController, UITextFieldDelegate{
         myLabel.text = textField.text
     }
 
+    
     @IBAction func touchID(_ sender: Any) {
-        let context: LAContext = LAContext()
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
-            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Face Pls", reply: {(wasCorrect, error) in
-                if wasCorrect
-                {
-                    print("yooo")
-                }
-                else{
-                    print("fuck")
+    let context = LAContext()
+        var error: NSError?
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error){
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "gimme face", reply: {(success, error) in
+                if success{
+                    print("good")
+                }else {
+                    if let error = error {
+                        print(error)
+                    }
                 }
             })
-        }
-        else{
-            //nothing worked
+        //FaceID popup
+        } else {
+            //No worky
+            print("bad")
+            return
         }
     }
 }
