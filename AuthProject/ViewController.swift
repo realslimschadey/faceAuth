@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import LocalAuthentication
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate{
     //MARK: Properties
 
     
@@ -37,7 +38,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         myLabel.text = textField.text
     }
-    
-    
+
+    @IBAction func touchID(_ sender: Any) {
+        let context: LAContext = LAContext()
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil){
+            context.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: "Face Pls", reply: {(wasCorrect, error) in
+                if wasCorrect
+                {
+                    print("yooo")
+                }
+                else{
+                    print("fuck")
+                }
+            })
+        }
+        else{
+            //nothing worked
+        }
+    }
 }
 
