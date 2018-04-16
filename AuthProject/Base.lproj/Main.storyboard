@@ -116,10 +116,16 @@
                         <color key="backgroundColor" red="0.87428971068709505" green="1" blue="0.4793668854555746" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="5Rf-kf-JUh"/>
                     </view>
+                    <connections>
+                        <segue destination="G6r-VL-JME" kind="show" identifier="segueGood" id="ImZ-SB-nQb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rfc-po-za4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1285.5999999999999" y="129.98500749625188"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ImZ-SB-nQb"/>
+    </inferredMetricsTieBreakers>
 </document>
