@@ -39,6 +39,9 @@ class ViewController: UIViewController, UITextFieldDelegate{
         myLabel.text = textField.text
     }
 
+    @IBAction func changeView(_ sender: Any) {
+        performSegue(withIdentifier: "segue1", sender: self)
+    }
     
     @IBAction func touchID(_ sender: Any) {
     let context = LAContext()
@@ -46,7 +49,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error){
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: "gimme face", reply: {(success, error) in
                 if success{
-                    print("good")
+                    self.performSegue(withIdentifier: "segue1", sender: self)
                 }else {
                     if let error = error {
                         print(error)
@@ -56,7 +59,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         //FaceID popup
         } else {
             //No worky
-            print("bad")
+            self.performSegue(withIdentifier: "segue2", sender: self)
             return
         }
     }
